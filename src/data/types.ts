@@ -1,7 +1,7 @@
 export interface Profile {
   name: string
   tagline: string
-  about: string
+  about: string[]
   email: string
   github: string
   linkedin: string
@@ -16,6 +16,8 @@ export interface EducationEntry {
   graduation: string
   gpa?: string
   coursework?: string[]
+  /** Imported logo asset URL, rendered in a uniform LogoTile. */
+  logo?: string
 }
 
 export interface ExperienceEntry {
@@ -25,6 +27,17 @@ export interface ExperienceEntry {
   dateRange: string
   description: string
   tags: string[]
+  /** Imported logo asset URL, rendered in a uniform LogoTile. */
+  logo?: string
+  /** Set when the logo image has its own background baked in (fills the tile edge-to-edge). */
+  logoFill?: boolean
+  /** Fallback text mark used when no usable logo image exists. */
+  monogram?: string
+}
+
+export interface SkillGroup {
+  category: string
+  items: string[]
 }
 
 export interface Project {
@@ -35,5 +48,9 @@ export interface Project {
   tags: string[]
   repoUrl?: string
   demoUrl?: string
+  /** Link text for demoUrl. Defaults to "Demo" — override for e.g. a video walkthrough. */
+  demoLabel?: string
+  /** Slide deck link. Use a Google Slides /preview URL so embedded video stays playable. */
+  slidesUrl?: string
   imageUrl?: string
 }

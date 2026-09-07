@@ -1,6 +1,8 @@
 import type { EducationEntry } from './types'
+import gtLogo from '../assets/gt-logo.svg'
 
 export const education: EducationEntry = {
+  logo: gtLogo,
   school: 'Georgia Institute of Technology',
   location: 'Atlanta, GA',
   degree: 'Bachelor of Science in Computer Science',
